@@ -1,6 +1,7 @@
 import com.sun.deploy.net.URLEncoder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -14,9 +15,25 @@ public class Main {
 
 //        System.out.println(doc);
 
-        Elements overViewStats = doc.select("body > main.player-header div.header-stats");
-        System.out.println(overViewStats.toString());
+        Elements overViewStats = doc.select("body > main.player-header div.header-stats div.header-stat");
 
+        for (Element ele : overViewStats) {
+            System.out.println(ele.select("span").text());
+            System.out.println(ele.select("strong").text());
+        }
+
+        Elements heroList = doc.select("body div.heroes-list div.heroes-row-container");
+
+        for (Element ele : heroList) {
+            System.out.println(ele.select("div.heroes-icon > strong > span").text());
+            System.out.println(ele.select("div.heroes-icon > strong > div > strong").text());
+
+            System.out.println(ele.select("div.heroes-stats > div.heroes-stats-kda > strong").text());
+
+            System.out.println(ele.select("div.heroes-winrate > strong").text());
+            System.out.println(ele.select("div.heroes-winrate > span").text());
+//            System.out.println(ele.select("strong").text());
+        }
 
 
 
