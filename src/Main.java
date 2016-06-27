@@ -7,56 +7,16 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
-        String encodeString = URLEncoder.encode("케이크류", "UTF-8");
-        Document doc = Jsoup.connect("http://masteroverwatch.com/profile/pc/kr/" + encodeString + "-3111").userAgent("Mozilla").get();
 
-//        System.out.println(doc);
-
-        Elements overViewStats = doc.select("body > main.player-header div.header-stats div.header-stat");
-
-        for (Element ele : overViewStats) {
-            System.out.println(ele.select("span").text());
-            System.out.println(ele.select("strong").text());
-        }
-
-        Elements heroList = doc.select("body div.heroes-list div.heroes-row-container");
-
-        for (Element ele : heroList) {
-            System.out.println(ele.select("div.heroes-icon > strong > span").text());
-            System.out.println(ele.select("div.heroes-icon > strong > div > strong").text());
-
-            System.out.println(ele.select("div.heroes-stats > div.heroes-stats-kda > strong").text());
-
-            System.out.println(ele.select("div.heroes-winrate > strong").text());
-            System.out.println(ele.select("div.heroes-winrate > span").text());
-//            System.out.println(ele.select("strong").text());
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        MOStats stat = new MOStats("케이크류#3111");
+        System.out.println(stat.getBattleTag());
+        System.out.println(stat.getTotalGames());
+        System.out.println(stat.getWin());
+        System.out.println(stat.getLoss());
+        System.out.println(stat.getWinrate() * 100);
+        System.out.println(stat.getHeros().size());
 
 
 
