@@ -13,8 +13,8 @@ public class Main {
         MOStats stat = new MOStats("케이크류#3111");
         System.out.println(stat.getBattleTag());
         System.out.println(stat.getTotalGames());
-        System.out.println(stat.getWin());
-        System.out.println(stat.getLoss());
+//        System.out.println(stat.getWin());
+//        System.out.println(stat.getLoss());
         System.out.println(stat.getWinrate() * 100);
         System.out.println(stat.getHeros().size());
 

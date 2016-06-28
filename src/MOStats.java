@@ -39,7 +39,7 @@ public class MOStats {
         }
 
         Elements heroList = doc.select("body div.heroes-list div.heroes-row-container");
-        heros = new ArrayList<OWHero>();
+        heros = new ArrayList<>();
         for (Element ele : heroList) {
             OWHero aHero = new OWHero();
             aHero.setName(ele.select("div.heroes-icon > strong > span").text());
@@ -47,6 +47,7 @@ public class MOStats {
             aHero.setKDRate(Double.parseDouble(ele.select("div.heroes-stats > div.heroes-stats-kda > strong").text()));
             aHero.setWinRate(ele.select("div.heroes-winrate > strong").text());
             aHero.setGames(Integer.parseInt(ele.select("div.heroes-winrate > span").text().split(" ")[0]));
+            heros.add(aHero);
         }
 
         this.battleTag = bt;
@@ -75,6 +76,4 @@ public class MOStats {
     public List<OWHero> getHeros() {
         return heros;
     }
-
-
 }
